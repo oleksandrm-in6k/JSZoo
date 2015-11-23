@@ -61,7 +61,6 @@ function AbstractAnimal(){
 			}, 
 			eatingPeriod
 		);
-
 	};
 
 	this.getEatingPeriod = function() {
@@ -114,7 +113,7 @@ function AbstractAnimal(){
 			this.notifyObservers( AbstractAnimal.notifyTypes.starvation );
 		} 
 		else{
-			this._energyPercent = percent;
+			this._energyPercent = Math.floor(percent);
 		} 
 
 		this.notifyObservers( AbstractAnimal.notifyTypes.energyChange );
@@ -149,9 +148,12 @@ function AbstractAnimal(){
 	};
 
 	this.addObserver = function(observer) {
-		if(!this._observers) {//Fix for create array in child element
+
+		//Fix for create array in child element
+		if(!this._observers) {
 			this._observers = [];
 		}
+
 		var index = this._observers.indexOf(observer);
 		if(index!=-1)
 			throw new Error("This observer is already exists");

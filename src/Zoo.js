@@ -8,9 +8,10 @@ function Zoo(view){
 		}
 		this._animals.push(animal);
 		animal.addObserver(this);
+		this.view.addNewAnimal(animal);
 	};
 
-	this.update = function(animal, updateType, message){
+	this.update = function(animal, updateType, message) {
 		switch(updateType){
 			case AbstractAnimal.notifyTypes.energyChange:
 				this.view.energyChange(animal);
@@ -31,7 +32,7 @@ function Zoo(view){
 			break;
 
 			case AbstractAnimal.notifyTypes.predatorEatAnimal:
-				this.view.predatorEatAnimal(animal, message);//Message is ate animal
+				this.view.predatorEatAnimal(animal, message);
 			break;
 
 			default:

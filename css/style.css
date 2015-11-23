@@ -15,30 +15,67 @@
 .animal-wrapper{
 	float: right;
 	width: 340px;
-	background: red;
-}
-
-.animal-control{
-	height: 280px;
 }
 
 .animal-list{
 	overflow: auto;
-	height: 300px;
-
+	height: 250px;
+	box-shadow: 0 0 3px #333;
+	margin-bottom: 10px;
 }
 
-.create-animal-form{
-	height: 180px;
-	background: blue;
-	float: left;
-	width: 600px;
+.predator{
+	color: red;
 }
 
 .clear{
 	clear: both;
 }
 
-ul{
+.animal-block{
+	font-size: 14pt;
+	height: 44px;
+	padding-bottom: 8px;
+	border-bottom: 2px solid #aaa;
+	position: relative;
+	padding: 4px;
+}
 
+.progress-bar{
+	height: 20px;
+	background: red;
+	border-radius: 5px;
+}
+
+
+.remove-animal{
+	background: url(../img/close.png);
+	right: 12px;
+}
+
+.give-eat{
+	background: url(../img/meat.png);
+	right: 36px;	
+}
+.remove-animal,
+.give-eat{
+	position: absolute;
+	top: 6px;
+	height: 16px;
+	width: 16px;
+	background-size: 100%;
+	cursor: pointer;
+}
+
+.label{
+	margin-left: 10px;
+	margin-top: 3px;
+}
+.create-animal-form{
+	height: 220px;
+	background: blue;
+}
+
+td{
+	width: 45%;
 }
