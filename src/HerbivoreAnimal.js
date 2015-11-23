@@ -1,4 +1,8 @@
 function HerbivoreAnimal(name, kind, size, eatingInterval, voiceInterval, voice){
+	AbstractAnimal.call(this);
+
+	this.isHerbivore = true;
+
 	this.setName(name);
 	this.setKind(kind);
 	this.setSize(size);
@@ -9,6 +13,5 @@ function HerbivoreAnimal(name, kind, size, eatingInterval, voiceInterval, voice)
 	this.starvation = function(){
 		this.kill();
 	};
-}
 
-HerbivoreAnimal.prototype = new AbstractAnimal();
+}

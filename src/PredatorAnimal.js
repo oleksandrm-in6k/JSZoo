@@ -1,4 +1,8 @@
 function PredatorAnimal(name, kind, size, eatingInterval, voiceInterval, voice){
+	AbstractAnimal.call(this);
+
+	this.isPredator = true;
+
 	this.setName(name);
 	this.setKind(kind);
 	this.setSize(size);
@@ -6,21 +10,24 @@ function PredatorAnimal(name, kind, size, eatingInterval, voiceInterval, voice){
 	this.setVoice(voice);
 	this.setVoicePeriod(voiceInterval);
 
+	this.eatAnimal = function(animal) {
+		this.notifyObservers( AbstractAnimal.notifyTypes.predatorEatAnimal, animal);
+		this.giveToEat(animal);
+		animal.kill();
+	};
+
 	this.selectEatFromArray = function(arrayOfAnimals) {
 		for(var i = 0; i < arrayOfAnimals.length; i++) {
-			if( !(arrayOfAnimals[i] instanceof PredatorAnimal) ){
-				this.notifyObservers( notifyTypes.predatorEatAnimal, arrayOfAnimals[i]);
-				this.giveToEat(arrayOfAnimals[i]);
-				arrayOfAnimals[i].kill();
+			if( !arrayOfAnimals[i].isPredator ) {
+				this.eatAnimal(arrayOfAnimals[i]);
 				return;
 			}
-		}
+		}				
 		this.kill();
 	};
 
-	this.starvation = function(animals){
+	this.starvation = function(animals) {
 		this.selectEatFromArray(animals);
 	};
 }
 
-PredatorAnimal.prototype = new AbstractAnimal();
