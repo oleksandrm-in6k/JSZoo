@@ -1,0 +1,38 @@
+.wrapper{
+	width: 960px;
+	margin: 0 auto;
+}
+
+.chat-window{
+	float: left;
+	width: 600px;
+	height: 400px;
+	background: yellow;
+}
+
+.animal-wrapper{
+	float: right;
+	width: 340px;
+	background: red;
+}
+
+.animal-control{
+	height: 280px;
+}
+
+.animal-list{
+	overflow: auto;
+	height: 300px;
+
+}
+
+.create-animal-form{
+	height: 180px;
+	background: blue;
+	float: left;
+	width: 600px;
+}
+
+.clear{
+	clear: both;
+}
