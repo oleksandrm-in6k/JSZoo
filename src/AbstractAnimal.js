@@ -38,7 +38,7 @@ function AbstractAnimal(){
 
 	this.setSize = function(size) {
 		if(typeof(size) != 'number' || size < 0)
-			throw new Error('Name must be a positive number');
+			throw new Error('Size must be a positive number');
 		this._size = size;
 	};
 

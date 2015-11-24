@@ -12,41 +12,46 @@
 
 		<div class="animal-wrapper">
 
-			<div class="animal-list">
-				
-			</div>
+			<div class="animal-list"></div>
 		
 			<div class="create-animal-form">
 				<table>
 					<tr>
 						<th>Animal name:</th>
-						<td><input type="text"></td>
+						<td><input type="text" id="animalName" value="Animal1"></td>
 					</tr>
 					<tr>
 						<th>Animal kind:</th>
-						<td><input type="text"></td>
+						<td><input type="text" id="animalKind" value="Monkey"></td>
 					</tr>
 					<tr>
 						<th>Size:</th>
-						<td><input type="text"></td>
+						<td><input type="text" id="animalSize" value="65"></td>
 					</tr>
 					<tr>
 						<th>Animal food type:</th>
-						<td><input type="text"></td>
+						<td>
+							<select id="animalType">
+								<option value="predator">Predator</option>
+								<option value="herbivore">Herbivore</option>
+								<option value="dragon">Snake Gorihich</option>
+							</select>
+						</td>
 					</tr>
 					<tr>
 						<th>Voice:</th>
-						<td><input type="text"></td>
+						<td><input type="text" id="animalVoice" value="Yuuk yaaak quaak!!!"></td>
 					</tr>
 					<tr>
 						<th>Voice period:</th>
-						<td><input type="text"></td>
+						<td><input type="text" id="animalVoicePeriod" value="2000"></td>
 					</tr>
 					<tr>
 						<th>Eat period:</th>
-						<td><input type="text"></td>
+						<td><input type="text" id="animalEatPeriod" value="2300"></td>
 					</tr>
 				</table>
+				<div class="create-animal-button">Create</div>
 			</div>
 		</div>
 

@@ -1,4 +1,37 @@
 function View(){
+	var self = this;
+	this.setZoo = function(zoo) {
+		this.zoo = zoo;
+	};
+
+	$('.create-animal-button').on('click', function() {
+		var name = $('#animalName').val(),
+			type = $('#animalType').val(),
+			kind = $('#animalKind').val(),
+			size = parseInt($('#animalSize').val()),
+			voicePeriod = parseInt($('#animalVoicePeriod').val()),
+			eatPeriod = parseInt($('#animalEatPeriod').val()),
+			voice = $('#animalVoice').val();
+
+		var animal = null;
+
+		switch(type){
+			case 'predator':
+				animal = new PredatorAnimal(name, kind, size, eatPeriod, voicePeriod, voice);
+			break;
+
+			case 'herbivore':
+				animal = new HerbivoreAnimal(name, kind, size, eatPeriod, voicePeriod, voice);
+			break;
+
+			case 'dragon':
+				throw new Error('Class "dragon" is not implemented!');
+			break;
+		}
+		console.log(animal);
+		self.zoo.addAnimal(animal);
+	});
+
 
 	this.addNewAnimal = function(animal) {
 		var htmlTemplate = 
@@ -8,9 +41,13 @@ function View(){
 			'<span class="label"></span>' +
 			'<div class="progress-bar"></div>'+
 			'</div>';
-		var self = this; 
+
 		animal.$ = $(htmlTemplate)
 			.appendTo('.animal-list');
+
+		if (animal.isHerbivore) {
+			animal.$.children('.give-eat').addClass('vegetarian-eat');
+		}
 
 		animal.$.children('.remove-animal')
 			.on('click', function(){

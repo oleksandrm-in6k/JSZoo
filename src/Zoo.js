@@ -2,6 +2,8 @@ function Zoo(view){
 	this.view = view;
 	this._animals = [];
 
+	this.view.setZoo(this);
+
 	this.addAnimal = function(animal) {
 		if( !animal.isAnimal ) {
 			throw new Error("Param animal must instance of AbstractAnimal");
