@@ -7,7 +7,7 @@ function AbstractAnimal(){
 	//Declaration for hints
 	this._voiceTimer;
 	this._eatTimer;
-	this._observers;
+	this._observers = [];
 
 	this._name;
 	this._kind;
@@ -70,9 +70,6 @@ function AbstractAnimal(){
 	this.setVoicePeriod = function(voicePeriod) {
 		if(typeof(voicePeriod)!=='number' || voicePeriod < 0)
 			throw new Error('Voice period must be a positive number');
-
-		if(typeof(this._voice)!='string')
-			throw new Error('Voice must be a string');
 
 		this._voicePeriod = voicePeriod;
 
@@ -148,12 +145,6 @@ function AbstractAnimal(){
 	};
 
 	this.addObserver = function(observer) {
-
-		//Fix for create array in child element
-		if(!this._observers) {
-			this._observers = [];
-		}
-
 		var index = this._observers.indexOf(observer);
 		if(index!=-1)
 			throw new Error("This observer is already exists");

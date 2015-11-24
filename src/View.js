@@ -1,5 +1,6 @@
 function View(){
 	var self = this;
+
 	this.setZoo = function(zoo) {
 		this.zoo = zoo;
 	};
@@ -28,7 +29,6 @@ function View(){
 				throw new Error('Class "dragon" is not implemented!');
 			break;
 		}
-		console.log(animal);
 		self.zoo.addAnimal(animal);
 	});
 
@@ -80,7 +80,6 @@ function View(){
 	};
 
 	this.energyChange = function(animal) {
-		//this.writeToChat(animal.getKind() + " "+ animal.getName() + " has "+ animal.getEnergyPercent() + "% hp");
 		animal.$.children('.label').text(animal.getKind() + " "+ animal.getName() + " [" + animal.getEnergyPercent() + "]");
 		animal.$.children('.progress-bar').css('width', animal.getEnergyPercent()+'%');
 	};
