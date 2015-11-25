@@ -166,7 +166,7 @@ function AbstractAnimal(){
 	}
 
 	this.giveToEat = function(eat) {
-		this.setEnergyPercent( this.getEnergyPercent() + eat.getSize() / this._size );
+		this.setEnergyPercent( (this.getEnergyPercent() + eat.getSize() / this._size)*10 );
 	};
 
 	this.energyDecriment = function(decriment) {

@@ -26,7 +26,7 @@ function View(){
 			break;
 
 			case 'dragon':
-				throw new Error('Class "dragon" is not implemented!');
+				animal = new DragonAnimal("GORINICH", "Dragon", 3, 300, 500, "I am big and agly");
 			break;
 		}
 		self.zoo.addAnimal(animal);

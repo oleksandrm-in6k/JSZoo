@@ -209,7 +209,7 @@ describe('Abstract Animal', function(){
 					return 1;
 				}
 			});
-			expect(animal.getEnergyPercent()).toBe(6);
+			expect(animal.getEnergyPercent()).toBe(60);
 		});
 	});
 
