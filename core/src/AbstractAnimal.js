@@ -87,7 +87,7 @@ function AbstractAnimal(){
 
 		this._eatTimer = setInterval(
 			function(){
-				self.energyDecriment();
+				self.energyDecriment(5);
 			}, 
 			this._eatingPeriod
 		);
@@ -139,7 +139,10 @@ function AbstractAnimal(){
 
 
 
-	this.setEnergyPercent = function(percent) {
+	this.setEnergyPercent = function(percent) {		
+		if(typeof(percent)!=='number')
+			throw new Error('Energy percent must be a number');
+
 		if(percent >= 100) {
 			this._energyPercent = 100;
 		}
@@ -163,12 +166,12 @@ function AbstractAnimal(){
 	}
 
 	this.giveToEat = function(eat) {
-		this.setEnergyPercent( this.getEnergyPercent() + eat.getSize() * 100 / this._size );
+		this.setEnergyPercent( this.getEnergyPercent() + eat.getSize() / this._size );
 	};
 
 	this.energyDecriment = function(decriment) {
-		if( !decriment )
-			decriment = 5;
+		if(typeof(decriment)!=='number')
+			throw new Error('Energy decriment must be a number');
 		this.setEnergyPercent(this.getEnergyPercent() - decriment);
 	}
 
@@ -183,6 +186,9 @@ function AbstractAnimal(){
 	};
 
 	this.addObserver = function(observer) {
+		if(typeof observer == 'function')
+			throw new Error("This observer is already exists");
+
 		var index = this._observers.indexOf(observer);
 		if(index!=-1)
 			throw new Error("This observer is already exists");
@@ -201,7 +207,6 @@ function AbstractAnimal(){
 			this._observers[i].update(this, type, message);
 		}
 	};
-
 }
 
 

@@ -165,5 +165,81 @@ describe('Abstract Animal', function(){
 		});
 	});
 
+	describe('energy accessors', function() {
+		it('set and get energy', function(){
+			var testVal = 5;
+
+			spyOn(animal, 'notifyObservers');
+
+			animal.setEnergyPercent(testVal);
+			expect(animal.getEnergyPercent()).toBe(testVal);
+
+			expect(animal.notifyObservers).toHaveBeenCalledWith(AbstractAnimal.notifyTypes.energyChange);
+
+			testVal = 105;
+			animal.setEnergyPercent(testVal);
+			expect(animal.getEnergyPercent()).toBe(100);
+
+			expect(animal.notifyObservers).toHaveBeenCalledWith(AbstractAnimal.notifyTypes.energyChange);
+			
+			testVal = -5;
+			animal.setEnergyPercent(testVal);
+			expect(animal.getEnergyPercent()).toBe(0);
+			expect(animal.notifyObservers).toHaveBeenCalledWith(AbstractAnimal.notifyTypes.energyChange);
+			expect(animal.notifyObservers).toHaveBeenCalledWith(AbstractAnimal.notifyTypes.starvation);
+		});
+		
+		it('throws exception when param is not a number', function() {
+			var testVal = '23';
+			expect(animal.setEnergyPercent.bind(animal, testVal)).toThrow();
+			expect(animal.energyDecriment.bind(animal, testVal)).toThrow();
+		});
+
+		it('decrements energy', function() {
+			animal.setEnergyPercent(7);
+			animal.energyDecriment(1);
+			expect(animal.getEnergyPercent()).toEqual(6);
+		});
+
+		it('eats must increments energy percent', function() {
+			animal.setSize(1);
+			animal.setEnergyPercent(5);
+			animal.giveToEat({
+				getSize: function(){
+					return 1;
+				}
+			});
+			expect(animal.getEnergyPercent()).toBe(6);
+		});
+	});
+
+	describe('subscribers', function() {
+		it('adds new observer and send notifycation', function() {
+			var observerMock = jasmine.createSpyObj('observerMock', ['update']);
+			animal.addObserver(observerMock);
+			animal.notifyObservers();
+			expect(observerMock.update).toHaveBeenCalled();
+		});
+
+		it('removes observer', function() {
+			var observerMock = jasmine.createSpyObj('observerMock', ['update']);
+			animal.addObserver(observerMock);
+			animal.removeObserver(observerMock);
+			animal.notifyObservers();
+			expect(observerMock.update).not.toHaveBeenCalled();
+		});
+	});	
+	
+	it('kill notifies observers and clears observer list', function() {
+		spyOn(animal, 'notifyObservers');
+		animal.kill();
+		expect(animal.notifyObservers).toHaveBeenCalledWith(AbstractAnimal.notifyTypes.death);
+	});
+
+	it('makes voice', function() {
+		spyOn(animal, 'notifyObservers');
+		animal.makeVoice();
+		expect(animal.notifyObservers).toHaveBeenCalledWith(AbstractAnimal.notifyTypes.message, animal.getVoice());
+	});
 
 });
