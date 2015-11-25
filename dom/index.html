@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+	<div class="wrapper">
+		<div class="chat-window"></div>
+
+		<div class="animal-wrapper">
+
+			<div class="animal-list"></div>
+		
+			<div class="create-animal-form">
+				<table>
+					<tr>
+						<th>Animal name:</th>
+						<td><input type="text" id="animalName" value="Animal1"></td>
+					</tr>
+					<tr>
+						<th>Animal kind:</th>
+						<td><input type="text" id="animalKind" value="Monkey"></td>
+					</tr>
+					<tr>
+						<th>Size:</th>
+						<td><input type="text" id="animalSize" value="65"></td>
+					</tr>
+					<tr>
+						<th>Animal food type:</th>
+						<td>
+							<select id="animalType">
+								<option value="predator">Predator</option>
+								<option value="herbivore">Herbivore</option>
+								<option value="dragon">Snake Gorihich</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th>Voice:</th>
+						<td><input type="text" id="animalVoice" value="Yuuk yaaak quaak!!!"></td>
+					</tr>
+					<tr>
+						<th>Voice period:</th>
+						<td><input type="text" id="animalVoicePeriod" value="2000"></td>
+					</tr>
+					<tr>
+						<th>Eat period:</th>
+						<td><input type="text" id="animalEatPeriod" value="2300"></td>
+					</tr>
+				</table>
+				<div class="create-animal-button">Create</div>
+			</div>
+		</div>
+
+	</div>
+	
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="../core/src/AbstractAnimal.js"></script>
+	<script src="../core/src/PredatorAnimal.js"></script>
+	<script src="../core/src/HerbivoreAnimal.js"></script>
+	<script src="../core/src/Zoo.js"></script>
+	<script src="../core/src/View.js"></script>
+	<script src="../core/src/app.js"></script>
+
+</body>
+</html>
