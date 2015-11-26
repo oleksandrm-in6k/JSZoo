@@ -12,6 +12,7 @@ function HerbivoreAnimal(name, kind, size, eatingInterval, voiceInterval, voice)
 	
 	this.setVoice(voice);
 	this.setVoicePeriod(voiceInterval);
+	this.startVoiceTimer();
 	
 
 	this.starvation = function(){

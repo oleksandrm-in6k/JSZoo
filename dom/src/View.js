@@ -84,7 +84,7 @@ function View(){
 		animal.$.children('.progress-bar').css('width', animal.getEnergyPercent()+'%');
 	};
 
-	this.animalDeath = function(animal) {
+	this.animalDeat = hfunction(animal) {
 		this.writeToChat(animal.getKind() + " "+ animal.getName() + " is death");
 		animal.$.remove();
 	};

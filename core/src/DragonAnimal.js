@@ -12,6 +12,7 @@ function DragonAnimal(name, kind, size, eatingInterval, voiceInterval, voice){
 	
 	this.setVoice(voice);
 	this.setVoicePeriod(voiceInterval);
+	this.startVoiceTimer();
 	
 	this.eatAnimal = function(animal) {
 		this.notifyObservers( AbstractAnimal.notifyTypes.predatorEatAnimal, animal);

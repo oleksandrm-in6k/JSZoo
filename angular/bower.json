@@ -1,0 +1,14 @@
+{
+  "name": "AngularZoo",
+  "version": "0.0.1",
+  "homepage": "https://github.com/oleksandrm-in6k/JSZoo",
+  "main": "index.html",
+  "authors": [
+    "Melnik Alexandr"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "*",
+    "bootstrap": "*"
+  }
+}
