@@ -4,10 +4,31 @@ header{
 	font-size: 36pt;
 }
 
-.chat{
+chat{
+	display: block;
+}
 
+
+chat ul{
+	list-style-type: none;
+	padding: 0;
+}
+
+chat li:nth-child(even){
+	background: rgba(255, 255, 255, 0.3);
+}
+.chat-box{
+	height: 720px;
+	overflow: auto;
+}
+
+.animal-list{
+	height: 400px;
+	overflow: auto;
 }
 
 animal{
 	display: block;
+	padding: 3px;
 }
+

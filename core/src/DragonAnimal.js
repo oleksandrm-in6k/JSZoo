@@ -2,6 +2,7 @@ function DragonAnimal(name, kind, size, eatingInterval, voiceInterval, voice){
 	AbstractAnimal.call(this);
 
 	this.isPredator = true;
+	this.isDragon = true;
 
 	this.setName(name);
 	this.setKind(kind);
@@ -29,12 +30,10 @@ function DragonAnimal(name, kind, size, eatingInterval, voiceInterval, voice){
 		}				
 	};
 
-	this.kill = function() {
-		this.notifyObservers( AbstractAnimal.notifyTypes.starvation);
-	};
-
 	this.starvation = function(animals) {
 		this.selectEatFromArray(animals);
+		if(this.getEnergyPercent()<=0)
+			this.kill();
 	};
 
 }

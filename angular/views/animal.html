@@ -1,3 +1,16 @@
+<div>
+	<span ng-show="animal.isPredator" class="label label-warning">Predator</span>
+	<span ng-show="animal.isHerbivore" class="label label-success">Herbivore</span>
+	<span ng-show="animal.isDragon" class="label label-danger">Dragon</span>
+</div>
+
 {{animal.getName()}}[{{animal.getEnergyPercent()}}]
+
 <button ng-click="eat()">Give eat</button>
 <button ng-click="kill()">Kill</button>
+<div class="progress">
+  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="energy" aria-valuemin="0" aria-valuemax="100" style="width: {{energy}}%;"><!-- ng-style -->
+    {{energy}}%
+  </div>
+</div>
+
