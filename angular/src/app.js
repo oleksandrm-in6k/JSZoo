@@ -1,7 +1,6 @@
 var zooApp = angular.module('zooApp', ['createAnimalFormModule', 'zooChatModule', 'animalModule'])
 	.controller('ZooCtrl', ['$scope', function($scope) {
 
-		$scope.animals = [];
 		$scope.messages = [];
 
 		setInterval(function(){
@@ -11,6 +10,7 @@ var zooApp = angular.module('zooApp', ['createAnimalFormModule', 'zooChatModule'
 		var view = new View($scope);
 
 		$scope.zoo = new Zoo(view);
+		$scope.animals = $scope.zoo.getAnimals();
 
 		var animal = new HerbivoreAnimal("Zhenya", "Ostrich", 200, 1932, 1734, "My name is Zhenya and i am Ostrich");
 		var animal2 = new PredatorAnimal("Sasha", "Programmer", 60, 600, 1300, "I am programmer");
