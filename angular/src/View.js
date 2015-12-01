@@ -8,7 +8,7 @@ function View($scope){
 	};
 
 	this.addNewAnimal = function (animal) {
-		$scope.animals.push(animal);
+		// TODO
 	};
 	
 	this.showMessage = function (animal, message) {
@@ -21,7 +21,7 @@ function View($scope){
 
 	this.animalDeath = function (animal) {
 		this.writeToChat(animal.getKind() + " "+ animal.getName() + " is death");
-		$scope.animals.splice($scope.animals.indexOf(animal), 1);
+		
 	}; 
 	this.animalStarvation = function (animal) {
 		this.writeToChat(animal.getKind() + " "+ animal.getName() + " is starvation");

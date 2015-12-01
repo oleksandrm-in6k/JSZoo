@@ -13,6 +13,10 @@ function Zoo(view){
 		this.view.addNewAnimal(animal);
 	};
 
+	this.getAnimals = function () {
+		return this._animals;
+	};
+
 	this.update = function(animal, updateType, message) {
 		switch(updateType){
 			case AbstractAnimal.notifyTypes.energyChange:

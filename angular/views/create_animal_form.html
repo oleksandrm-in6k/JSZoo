@@ -1,31 +1,32 @@
-<form action="">
-<div class="input-group">		  		
-	<select ng-model="animal.type" ng-init="animal.type = 'dragon'" ng-options="select as label for value in array">
-		<option value="predator">Predator</option>
-		<option value="herbivore">Herbivore</option>
-		<option value="dragon" ng-selected="true">Snake Gorihich</option>
-	</select>
-</div>
+<form action="" onsubmit="return false;">
+	<div class="input-group">		  		
+		<select ng-init="animal.type = 'dragon'" ng-options="animalType.type for animalType in animalTypes" ng-model="animalType">
+			<option value="">[choose animal type]</option>
+		</select>
+		<div>
+			<span class="label label-danger" ng-show="formError">Вы ввели не корректные данные</span>
+		</div>
+	</div>
 
-<div class="input-group">		  		
-	<input type="text" class="form-control" placeholder="Name" ng-model="animal.name">
-</div>
+	<div class="input-group">		  		
+		<input type="text" class="form-control" placeholder="Name" ng-model="animal.name">
+	</div>
 
-<div class="input-group">		  		
-	<input type="text" class="form-control" placeholder="Kind" ng-model="animal.kind">
-</div>
-<div class="input-group">		  		
-	<input type="text" class="form-control" placeholder="Size" ng-model="animal.size">
-</div>
-<div class="input-group">		  		
-	<input type="text" class="form-control" placeholder="Voice" ng-model="animal.voice">
-</div>
-<div class="input-group">		  		
-	<input type="text" class="form-control" placeholder="Voice period" ng-model="animal.voicePeriod">
-</div>
-<div class="input-group">		  		
-	<input type="text" class="form-control" placeholder="Eat period" ng-model="animal.eatPeriod">
-</div>
+	<div class="input-group">		  		
+		<input type="text" class="form-control" placeholder="Kind" ng-model="animal.kind">
+	</div>
+	<div class="input-group">		  		
+		<input type="text" class="form-control" placeholder="Size" ng-model="animal.size">
+	</div>
+	<div class="input-group">		  		
+		<input type="text" class="form-control" placeholder="Voice" ng-model="animal.voice">
+	</div>
+	<div class="input-group">		  		
+		<input type="text" class="form-control" placeholder="Voice period" ng-model="animal.voicePeriod">
+	</div>
+	<div class="input-group">		  		
+		<input type="text" class="form-control" placeholder="Eat period" ng-model="animal.eatPeriod">
+	</div>
 
-<button type="submit" class="btn btn-default" ng-click="addAnimal(animal)">Submit</button>
+	<button type="submit" class="btn btn-default" ng-click="addAnimal(animal)">Submit</button>
 </form>
